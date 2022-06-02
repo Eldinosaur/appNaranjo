@@ -1,0 +1,55 @@
+<an-container>
+  <an-title></an-title>
+  <br>
+  <perfect-scrollbar class="heightMaxPerfectScrollbar">
+  <form fxLayout="column" >
+    <mat-form-field appearance="outline">
+      <mat-label>Cedula Cliente</mat-label>
+      <input type="text" matInput formControlName="cedula" placeholder="Cedula" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+      <mat-label>Nombre Cliente</mat-label>
+      <input type="text" matInput formControlName="nombre" placeholder="Nombre" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Apellido Cliente</mat-label>
+    <input type="text" matInput formControlName="apellido" placeholder="Apellido" required>
+</mat-form-field>
+<mat-form-field appearance="outline">
+    <mat-label>Celular Cliente</mat-label>
+    <input type="text" matInput formControlName="celular" placeholder="Celular" required>
+</mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Fecha recibido</mat-label>
+    <input type="date" matInput formControlName="date" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+  <mat-label>Fecha estimada de entrega</mat-label>
+    <input type="date" matInput formControlName="deiverdate" required>
+  </mat-form-field>
+  <mat-form-field appearance="outline">
+    <mat-label>Motivo</mat-label>
+    <input type="text" matInput formControlName="motivo" placeholder="Motivo de mantenimiento" required>
+</mat-form-field>
+  <div fxLayout fxLayoutAlign="end" fxLayoutGap="10px">
+    <button
+      mat-raised-button
+      color="primary"
+      type="button"
+      (click)="save()">
+      Grabar</button>
+      <!--[disabled]="group.invalid"-->
+      <button
+        mat-button
+        type="button"
+        color="primary"
+        mat-dialog-close>
+        Cancelar
+      </button>
+  </div>
+  </form>
+</perfect-scrollbar>
+</an-container>
+<an-container>
+  <an-table [data]="dataCore" [metaDataColumns]="metaDataColumns"></an-table>
+</an-container>

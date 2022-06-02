@@ -27,6 +27,7 @@
               "projects/app-naranjo/src/assets"
             ],
             "styles": [
+              "projects/app-naranjo/src/custom-theme.scss",
               "projects/app-naranjo/src/styles.css"
             ],
             "scripts": []
