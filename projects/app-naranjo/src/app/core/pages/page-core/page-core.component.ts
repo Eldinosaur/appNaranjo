@@ -10,7 +10,8 @@ import { CoreService } from '../../services/core.service';
 })
 export class PageCoreComponent implements OnInit {
   group!:FormGroup
-  data: any;
+
+
 
   metaDataColumns: MetaDataColumn[] = [
     {field:"cedula", title:"Cedula"},
@@ -28,30 +29,37 @@ export class PageCoreComponent implements OnInit {
     private coreService:CoreService
   ) {
     this.loadCore()
+    this.group = new FormGroup({
+      cedula: new FormControl(),
+      nombre: new FormControl(),
+      apellido: new FormControl(),
+      celular: new FormControl(),
+      date: new FormControl(),
+      deliverdate: new FormControl(),
+      motivo: new FormControl(),
+    })
   }
 
   ngOnInit(): void {
+
 
   }
 
 
 
   save(){
-    this.group = new FormGroup({
-      id: new FormControl(this.data?._id),
-      cedula: new FormControl(this.data.cedula, Validators.required),
-      nombre: new FormControl(this.data.nombre, Validators.required),
-      apellido: new FormControl(this.data.apellido, Validators.required),
-      celular: new FormControl(this.data.celular, Validators.required),
-      date: new FormControl(this.data.date, Validators.required),
-      deliverdate: new FormControl(this.data.deliverdate, Validators.required),
-      motivo: new FormControl(this.data.motivo, Validators.required),
-    })
+     const record = this.group.value
+     let core = {...record}
+     this.coreService.addCore(core).subscribe(()=>{})
+     location.reload()
+
   }
 
   loadCore() {
     this.coreService.loadCore().subscribe(data => {
+
       this.recordsCore = data
+console.log(data)
     }, error => {
       console.log(error)
     })

@@ -2,7 +2,7 @@
   <an-title></an-title>
   <br>
   <perfect-scrollbar class="heightMaxPerfectScrollbar">
-  <form fxLayout="column" >
+  <form fxLayout="column" [formGroup]="group">
     <mat-form-field appearance="outline">
       <mat-label>Cedula Cliente</mat-label>
       <input type="text" matInput formControlName="cedula" placeholder="Cedula" required>
@@ -25,7 +25,7 @@
   </mat-form-field>
   <mat-form-field appearance="outline">
   <mat-label>Fecha estimada de entrega</mat-label>
-    <input type="date" matInput formControlName="deiverdate" required>
+    <input type="date" matInput formControlName="deliverdate" required>
   </mat-form-field>
   <mat-form-field appearance="outline">
     <mat-label>Motivo</mat-label>
